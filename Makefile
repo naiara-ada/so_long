@@ -45,9 +45,13 @@ GIT_MLX = git clone https://github.com/42-Fundacion-Telefonica/MLX42.git $(LIBML
 
 all: check_mlx $(NAME)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: ./src/%.c
+	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 	
+$(OBJ_BONUS_DIR)/%.o: ./src_bonus/%.c
+	@mkdir -p $(OBJ_BONUS_DIR)
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 $(NAME): $(OBJS)
 	@make -C $(LIBFT_DIR)
@@ -61,7 +65,7 @@ bonus: $(OBJS_BONUS)
 	@$(CC) $(OBJS_BONUS) $(LIBS_PATH) $(HEADERS) -o $(NAME)
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJS_DIR)
 	@make clean -C $(LIBFT_DIR)
 	@make clean -C $(PRINTF_DIR)
 	

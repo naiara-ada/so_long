@@ -78,7 +78,7 @@ void	print_counter(t_game *game)
 	while (digits > 0)
 	{
 		number = moves % 10;
-		mlx_image_to_window(game->mlx, game->images->numbers[number], digits * SIZE, digits * SIZE);
+		mlx_image_to_window(game->mlx, game->images->numbers[number], (digits - 1) * SIZE, 0);
 		moves = moves / 10;
 		digits--;
 	}	

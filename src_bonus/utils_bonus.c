@@ -56,62 +56,61 @@ void	load_numbers(t_game *game)
 	game->images->numbers[1] = mlx_texture_to_image(game->mlx, texture);
 	if (!game->images->numbers[1])
 		error_free("Error converting one image", game);
-	mlx_delete_texture(texture);
+	mlx_delete_texture(texture);	
 	texture = mlx_load_png(TWO_IMG);
 	if (!texture)
 		error_free("Error loading two texture", game);
 	game->images->numbers[2] = mlx_texture_to_image(game->mlx, texture);
-	if (game->images->numbers[2])
+	if (!game->images->numbers[2])
 		error_free("Error converting two image", game);
 	mlx_delete_texture(texture);	
 	texture = mlx_load_png(THREE_IMG);
 	if (!texture)
 		error_free("Error loading three texture", game);
 	game->images->numbers[3] = mlx_texture_to_image(game->mlx, texture);
-	if (game->images->numbers[3])
+	if (!game->images->numbers[3])
 		error_free("Error converting three image", game);
 	mlx_delete_texture(texture);	
 	texture = mlx_load_png(FOUR_IMG);
 	if (!texture)
 		error_free("Error loading four texture", game);
 	game->images->numbers[4] = mlx_texture_to_image(game->mlx, texture);
-	if (game->images->numbers[4])
+	if (!game->images->numbers[4])
 		error_free("Error converting four image", game);
 	mlx_delete_texture(texture);
 	texture = mlx_load_png(FIVE_IMG);
 	if (!texture)
 		error_free("Error loading five texture", game);
 	game->images->numbers[5] = mlx_texture_to_image(game->mlx, texture);
-	if (game->images->numbers[5])
+	if (!game->images->numbers[5])
 		error_free("Error converting five image", game);
 	mlx_delete_texture(texture);
 	texture = mlx_load_png(SIX_IMG);
 	if (!texture)
 		error_free("Error loading six texture", game);
 	game->images->numbers[6] = mlx_texture_to_image(game->mlx, texture);
-	if (game->images->numbers[6])
+	if (!game->images->numbers[6])
 		error_free("Error converting six image", game);
 	mlx_delete_texture(texture);
 	texture = mlx_load_png(SEVEN_IMG);
 	if (!texture)
 		error_free("Error loading seven texture", game);
 	game->images->numbers[7] = mlx_texture_to_image(game->mlx, texture);
-	if (game->images->numbers[7])
+	if (!game->images->numbers[7])
 		error_free("Error converting seven image", game);
 	mlx_delete_texture(texture);
 	texture = mlx_load_png(EIGHT_IMG);
 	if (!texture)
 		error_free("Error loading eight texture", game);
 	game->images->numbers[8] = mlx_texture_to_image(game->mlx, texture);
-	if (game->images->numbers[8])
+	if (!game->images->numbers[8])
 		error_free("Error converting eight image", game);
 	mlx_delete_texture(texture);
-
 	texture = mlx_load_png(NINE_IMG);
 	if (!texture)
 		error_free("Error loading nine texture", game);
 	game->images->numbers[9] = mlx_texture_to_image(game->mlx, texture);
-	if (game->images->numbers[9])
+	if (!game->images->numbers[9])
 		error_free("Error converting nine image", game);
 	mlx_delete_texture(texture);
 }

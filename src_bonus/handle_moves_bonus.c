@@ -43,6 +43,7 @@ void	update_player_position(t_game *game, int new_x, int new_y)
 		game->exit_sprite = game->images->exit_player_img;
 	render_map_cell(game, new_x, new_y);
 	game->moves++;
+	print_counter(game);
 	ft_printf("moves: %d\n", game->moves);
 }
 
