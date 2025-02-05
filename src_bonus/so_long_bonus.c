@@ -46,6 +46,28 @@ static void	my_keyhook(mlx_key_data_t keydata, void *param)
 		close_win(game);
 }
 
+static void	animate(void *param)
+{
+	t_game	*game;
+
+	game = param;
+	if (game->flag == 1)
+	{
+		game->count++;
+		if (game->count == 25)
+			change_ball_sprite(game, 1);
+		else if (game->count == 50)
+			change_ball_sprite(game, 2);
+		else if (game->count == 75)
+			change_ball_sprite(game, 3);
+		else if (game->count == 100)
+		{
+			game->count = 0;
+			change_ball_sprite(game, 0);
+		}
+	}
+}
+
 void	close_win(void	*param)
 {
 	t_game	*game;
@@ -62,11 +84,13 @@ int	main(int ac, char **av)
 	game = malloc(sizeof(t_game));
 	if (!game)
 		return (1);
+	game->flag = 0;
 	check_parameters(ac, av, game);
 	init_map(game, av[1]);
 	init_vars(game);
 	check_map(game);
 	init_game(game);
+	mlx_loop_hook(game->mlx, &animate, game);
 	mlx_key_hook(game->mlx, &my_keyhook, game);
 	mlx_close_hook(game->mlx, &close_win, game);
 	mlx_loop(game->mlx);

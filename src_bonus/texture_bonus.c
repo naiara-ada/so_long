@@ -15,10 +15,10 @@
 void	render_wall(t_game *game, int x, int y)
 {
 	int				x_size;
-	
+
 	x_size = x * SIZE;
 	mlx_image_to_window(game->mlx, game->images->wall_img, x_size, y * SIZE);
-	game->map.walls++;	
+	game->map.walls++;
 }
 
 void	render_floor(t_game *game, int x, int y)

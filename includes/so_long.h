@@ -73,7 +73,7 @@ typedef struct s_images
 	mlx_image_t	*exit_close_img;
 	mlx_image_t	*open_img;
 	mlx_image_t	*exit_player_img;
-	}	t_images;
+}	t_images;
 
 typedef struct s_map
 {

@@ -53,8 +53,10 @@ void	render_map(t_game *game)
 	game->images = malloc(sizeof(t_images));
 	if (!game->images)
 		error_free("Error allocating memory for images", game);
+	load_balls(game);
 	load_images(game);
 	load_numbers(game);
+	game->flag = 1;
 	while (x < game->map.rows)
 	{
 		y = 0;

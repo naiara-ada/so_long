@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
-# define SO_LONG__BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
@@ -30,6 +30,11 @@
 # define EXITE_SPRITE "./textures/so_long_house.png"
 # define EXITE_SPRITE_OPEN "./textures/so_long_dragon.png"
 # define EXIT_PLAYER_SPRITE "./textures/so_long_house_goku.png"
+
+# define BALL1 "./textures/ball1_img.png"
+# define BALL2 "./textures/ball2_img.png"
+# define BALL3 "./textures/ball3_img.png"
+# define BALL4 "./textures/ball4_img.png"
 
 # define ZERO_IMG "./textures/zero_img.png"
 # define ONE_IMG "./textures/one_img.png"
@@ -73,8 +78,9 @@ typedef struct s_images
 	mlx_image_t	*exit_close_img;
 	mlx_image_t	*open_img;
 	mlx_image_t	*exit_player_img;
-	mlx_image_t *numbers[10];
-	}	t_images;
+	mlx_image_t	*numbers[10];
+	mlx_image_t	*balls[4];
+}	t_images;
 
 typedef struct s_map
 {
@@ -96,6 +102,8 @@ typedef struct s_game
 	mlx_t			*mlx;
 	t_map			map;
 	int				moves;
+	int				count;
+	int				flag;
 	t_position		player;
 	t_position		exit;
 	t_images		*images;
@@ -116,8 +124,11 @@ void	check_colectables(t_game *game);
 //utils.c
 void	load_images(t_game *game);
 void	load_numbers(t_game *game);
-void	free_game_map(char **mapi);
-void	free_map_copy(char **map, int rows);
+
+//utils2.c
+void	load_balls(t_game *game);
+void	collect_animation(t_game *game);
+void	change_ball_sprite(t_game *game, int i);
 
 //init_map.c
 void	init_map(t_game *game, char *file_map);
@@ -160,5 +171,9 @@ void	error_free(char *str, t_game *game);
 void	error_general(char *str);
 void	error_list(char *str, t_game *game);
 void	error_map(char *str, t_game *game);
+
+//free.c
+void	free_game_map(char **mapi);
+void	free_map_copy(char **map, int rows);
 
 #endif

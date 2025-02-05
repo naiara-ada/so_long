@@ -26,11 +26,18 @@ void	free_wall(t_game *game)
 	while (i < 10)
 	{
 		if (game->images->numbers[i])
-		mlx_delete_image(game->mlx, game->images->numbers[i]);
+			mlx_delete_image(game->mlx, game->images->numbers[i]);
 		i++;
-	}	
+	}
+	i = 0;
+	while (i < 4)
+	{
+		if (game->images->balls[i])
+			mlx_delete_image(game->mlx, game->images->balls[i]);
+		i++;
+	}
 }
-	
+
 void	free_images(t_game *game)
 {
 	if (!game->images)
@@ -69,18 +76,18 @@ void	clean_up(t_game *game)
 void	print_counter(t_game *game)
 {
 	int	digits;
-	int	number;
+	int	i;
 	int	moves;
+	int	x_size;
 
 	moves = game->moves;
 	digits = count_digits(moves);
-
 	while (digits > 0)
 	{
-		number = moves % 10;
-		mlx_image_to_window(game->mlx, game->images->numbers[number], (digits - 1) * SIZE, 0);
+		i = moves % 10;
+		x_size = (digits - 1) * SIZE;
+		mlx_image_to_window(game->mlx, game->images->numbers[i], x_size, 0);
 		moves = moves / 10;
 		digits--;
-	}	
+	}
 }
-

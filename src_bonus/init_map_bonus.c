@@ -50,6 +50,8 @@ void	init_vars(t_game *game)
 	game->map.walls = 0;
 	game->map.floor = 0;
 	game->moves = 0;
+	game->count = 0;
+	game->flag = 1;
 }
 
 static void	check_cols_size(t_game *game)

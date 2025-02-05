@@ -31,6 +31,8 @@ SRCS_BONUS	= ./src_bonus/error_bonus.c \
 				./src_bonus/texture_bonus.c \
 				./src_bonus/utils_bonus.c \
 				./src_bonus/validation_bonus.c \
+				./src_bonus/utils2_bonus.c \
+				./src_bonus/free_bonus.c
 
 OBJ_DIR		= ./obj
 OBJ_BONUS_DIR	= ./obj_bonus
@@ -65,7 +67,7 @@ bonus: $(OBJS_BONUS)
 	@$(CC) $(OBJS_BONUS) $(LIBS_PATH) $(HEADERS) -o $(NAME)
 
 clean:
-	@rm -rf $(OBJS_DIR)
+	@rm -rf $(OBJ_DIR) $(OBJ_BONUS_DIR)
 	@make clean -C $(LIBFT_DIR)
 	@make clean -C $(PRINTF_DIR)
 	

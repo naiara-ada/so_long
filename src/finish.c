@@ -21,7 +21,7 @@ void	free_wall(t_game *game)
 	if (game->images->collect_img)
 		mlx_delete_image(game->mlx, game->images->collect_img);
 }
-	
+
 void	free_images(t_game *game)
 {
 	if (!game->images)

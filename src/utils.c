@@ -15,9 +15,9 @@
 void	load_images(t_game *game)
 {
 	mlx_texture_t	*texture;
-	
+
 	texture = mlx_load_png(WALL_SPRITE);
-	if(!texture)
+	if (!texture)
 		error_free("Error loading wall texture", game);
 	game->images->wall_img = mlx_texture_to_image(game->mlx, texture);
 	if (!game->images->wall_img)

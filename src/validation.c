@@ -21,7 +21,7 @@ void	check_parameters(int ac, char **av, t_game *game)
 	if (ac < 2)
 		error_list("Error. You have to include a map.", game);
 	else if (ac > 2)
-		error_list("Error. Too many arguments. \n ./so_long maps/map1.ber", game);
+		error_list("Error. Too many arguments.", game);
 	else
 	{
 		len_str = ft_strlen(av[1]);
@@ -34,7 +34,7 @@ void	check_parameters(int ac, char **av, t_game *game)
 		result = ft_strncmp(extension, "/.ber", 5);
 		free(extension);
 		if (result == 0)
-			error_list("Error. file without name", game);			
+			error_list("Error. file without name", game);
 	}
 	game->map.flag = 0;
 }
