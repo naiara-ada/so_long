@@ -47,18 +47,18 @@ void	check_rows_cols(t_game *game)
 	while (i < game->map.cols)
 	{
 		if (game->map.full[0][i] != WALL)
-			error_free("The top edge is not surrounded by walls", game);
+			error_map("The top edge is not surrounded by walls", game);
 		if (game->map.full[game->map.rows - 1][i] != WALL)
-			error_free("The bottom edge is not surrounded by walls.", game);
+			error_map("The bottom edge is not surrounded by walls.", game);
 		i++;
 	}
 	i = 0;
 	while (i < game->map.rows)
 	{
 		if (game->map.full[i][0] != WALL)
-			error_free("The left edge is not surrounded by walls.", game);
+			error_map("The left edge is not surrounded by walls.", game);
 		if (game->map.full[i][game->map.cols - 1] != WALL)
-			error_free("The right edge is not surrounded by walls", game);
+			error_map("The right edge is not surrounded by walls", game);
 		i++;
 	}
 }
@@ -66,15 +66,15 @@ void	check_rows_cols(t_game *game)
 void	check_map_size(t_game *game)
 {
 	if (game->map.cols == game->map.rows)
-		error_free("Error. the map must be a rectangle.", game);
+		error_map("Error. the map must be a rectangle.", game);
 	if (game->map.exit != 1)
-		error_free("Error. Must be just 1 exit\n", game);
+		error_map("Error. Must be just 1 exit\n", game);
 	if (game->map.players != 1)
-		error_free("Error. Must be just 1 player\n", game);
+		error_map("Error. Must be just 1 player\n", game);
 	if (game->map.collects < 1)
-		error_free("Error. Must be 1 collectables or more\n", game);
+		error_map("Error. Must be 1 collectables or more\n", game);
 	if (game->map.walls < 12)
-		error_free("Error. Must be 12 or more walls", game);
+		error_map("Error. Must be 12 or more walls", game);
 }
 
 static void	check_map_colectables(t_game *game, int x, int y)

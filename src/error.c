@@ -15,7 +15,8 @@
 void	error_free(char *str, t_game *game)
 {
 	ft_printf("%s\n", str);
-	free_game_map(game->map.full);
+	if (game->map.full)
+		free_game_map(game->map.full);
 	free_images(game);
 	if (game->map.copy != NULL)
 		free_map_copy(game->map.copy, game->map.cols);
